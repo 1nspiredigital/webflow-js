@@ -44,8 +44,8 @@
     });
 
     function setActiveImage(index) {
-      gsap.to(images, { opacity: 0, duration: 0.4, overwrite: true });
-      gsap.to(images[index], { opacity: 1, duration: 0.4, overwrite: true });
+      gsap.to(images, { opacity: 0, duration: 0.6, overwrite: true });
+      gsap.to(images[index], { opacity: 1, duration: 0.6, overwrite: true });
     }
   });
 })();
