@@ -1,4 +1,4 @@
- /**
+/**
  * Scroll Swap Component
  * Sticky image that crossfades based on scroll position.
  * Requires GSAP + ScrollTrigger.
@@ -13,6 +13,7 @@
     var items = section.querySelectorAll(".scroll-swap-text-content");
     var images = section.querySelectorAll(".scroll-swap-img");
     var imagesWrap = section.querySelector(".scroll-swap-images");
+    var fadeDuration = parseFloat(section.dataset.fadeDuration) || 0.4;
 
     if (!items.length || !images.length) return;
 
@@ -32,7 +33,7 @@
     // Center the pinned images vertically in the viewport
     gsap.set(imagesWrap, { top: "50%", transform: "translateY(-50%)" });
 
-    // Crossfade images based on which text item is in view
+    // Crossfade images based on which text content is in view
     items.forEach(function (item, i) {
       ScrollTrigger.create({
         trigger: item,
@@ -44,8 +45,8 @@
     });
 
     function setActiveImage(index) {
-      gsap.to(images, { opacity: 0, duration: 0.6, overwrite: true });
-      gsap.to(images[index], { opacity: 1, duration: 0.6, overwrite: true });
+      gsap.to(images, { opacity: 0, duration: fadeDuration, overwrite: true });
+      gsap.to(images[index], { opacity: 1, duration: fadeDuration, overwrite: true });
     }
   });
 })();
